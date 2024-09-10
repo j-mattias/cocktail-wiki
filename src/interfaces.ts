@@ -75,8 +75,8 @@ export interface IDrinkReformat {
   strInstructionsDE: TOptionalString;
   strInstructionsFR: TOptionalString;
   strInstructionsIT: TOptionalString;
-  strInstructionsZH_HANS: TOptionalString;
-  strInstructionsZH_HANT: TOptionalString;
+  "strInstructionsZH-HANS": TOptionalString;
+  "strInstructionsZH-HANT": TOptionalString;
   strDrinkThumb: string;
   strIngredients: IDrinkIngredients[];
   strImageSource: TOptionalString;
