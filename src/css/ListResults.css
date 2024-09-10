@@ -1,0 +1,15 @@
+.list-results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+
+  .cocktail-card {
+    background-color: rgb(85, 78, 68);
+  }
+}
+
+.pagination {
+  width: 4rem;
+  height: 4rem;
+  background-color: white;
+}
