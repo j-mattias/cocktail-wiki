@@ -5,7 +5,7 @@ type TDrinkValue = IDrinkReformat[] | null;
 
 interface ISearchContext {
   searchResults: TDrinkValue;
-  setSearcResults: React.Dispatch<React.SetStateAction<TDrinkValue>>;
+  setSearchResults: React.Dispatch<React.SetStateAction<TDrinkValue>>;
 }
 
 interface ISearchContextProviderProps {
@@ -16,10 +16,10 @@ const SearchContext = createContext<ISearchContext | null>(null);
 
 // Used to wrap any children components that need access to reading/updating the searchResults
 export function SearchContextProvider({ children }: ISearchContextProviderProps) {
-  const [searchResults, setSearcResults] = useState<TDrinkValue>(null);
+  const [searchResults, setSearchResults] = useState<TDrinkValue>(null);
 
   return (
-    <SearchContext.Provider value={{ searchResults, setSearcResults }}>
+    <SearchContext.Provider value={{ searchResults, setSearchResults }}>
       {children}
     </SearchContext.Provider>
   );
