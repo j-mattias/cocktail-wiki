@@ -1,7 +1,13 @@
-import { useSearchContext } from "../contexts/SearchResultContext"
+import { useState } from "react";
+import { useSearchContext } from "../contexts/SearchResultContext";
+import { Pagination } from "./Pagination";
+
+const maxResultsPerPage = 10;
 
 export function ListResults() {
-  const {searchResults} = useSearchContext();
+  const { searchResults } = useSearchContext();
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
   const temp = [
     {
       idDrink: "11007",
@@ -555,16 +561,22 @@ export function ListResults() {
     },
   ];
 
-  const pagination = () => {
-    const results = temp.slice(0, 10);
-    console.log(results);
+  // Get the last and first index to use when slicing results list
+  const lastItemIndex = currentPage * maxResultsPerPage;
+  const firstItemIndex = lastItemIndex - maxResultsPerPage;
+
+  // Get the current posts to display
+  const currentPosts = temp.slice(firstItemIndex, lastItemIndex);
+
+  const handleClick = (page: number) => {
+    setCurrentPage(page);
   };
 
   return (
     <>
       <section className="list-results">
         {
-          temp.map((t) => (
+          currentPosts.map((t) => (
             <article className="cocktail-card" key={t.idDrink}>
               <h3 className="cocktail-title">{t.strDrink}</h3>
             </article>
@@ -574,9 +586,12 @@ export function ListResults() {
           // ))
         }
       </section>
-      <div className="pagination" onClick={pagination}>
-        
-      </div>
+      <Pagination
+        totalPosts={temp.length}
+        resultsPerPage={maxResultsPerPage}
+        handleClick={handleClick}
+        currentPage={currentPage}
+      />
     </>
-  )
+  );
 }
