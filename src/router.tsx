@@ -8,6 +8,7 @@ export const router = createBrowserRouter(
     <Route element={<App />} path="/">
       <Route element={<HomePage />} loader={randomCocktailLoader} index />
       <Route element={<SearchPage />} path="search" />
-      <Route  element={<NotFound />} path="*" />
+      <Route element={<NotFound />} path="*" />
     </Route>
-));
+  )
+);
