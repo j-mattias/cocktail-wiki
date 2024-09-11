@@ -1,5 +1,4 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
-import "../components/Header.css";
 import { CocktailCard } from "../components";
 import { IDrinkReformat } from "../interfaces";
 
