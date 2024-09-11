@@ -1,16 +1,12 @@
-import Search from "../components/Search";
+import { ListResults, Search } from "../components";
 
 import { SearchContextProvider } from "../contexts/SearchResultContext";
 
 export function SearchPage() {
   return (
-    <>
-      <div>Search Page</div>
-      <div>
-        <SearchContextProvider>
-          <Search />
-        </SearchContextProvider>
-      </div>
-    </>
+    <SearchContextProvider>
+      <Search />
+      <ListResults />
+    </SearchContextProvider>
   );
 }

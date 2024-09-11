@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSearchContext } from "../contexts/SearchResultContext";
 import { reformatData } from "../helpers";
 
-const Search = () => {
+export const Search = () => {
   // searchname from the userinput
   const [searchName, setSearchName] = useState<string>("");
 
@@ -32,13 +32,10 @@ const Search = () => {
       // Takes the helper function reformatData and converts it to IDrink format
       .then((data) => {
         if (data.drinks) {
-          const reformattedDrinks = reformatData({ drinks: data.drinks });
+          // Reformat the data to the expected format
+          const reformattedDrinks = reformatData(data);
 
-          const myDrinks = reformattedDrinks.map((drink) => ({
-            id: drink.idDrink,
-            name: drink.strDrink,
-          }));
-          setSearchResults(myDrinks); // Save to SearchResultContext
+          setSearchResults(reformattedDrinks); // Save to SearchResultContext
         } else {
           setSearchResults(null); // If no drinks found, clear results
         }
@@ -68,5 +65,3 @@ const Search = () => {
     </div>
   );
 };
-
-export default Search;
