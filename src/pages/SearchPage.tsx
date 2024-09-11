@@ -1,7 +1,7 @@
 import Search from "../components/Search";
-import DrinkList from "../components/ListResult";
+import DrinkList from "../components/ListResults";
 import { SearchContextProvider } from "../contexts/SearchResultContext";
-import ListResults from "../components/ListResult";
+import ListResults from "../components/ListResults";
 
 export function SearchPage() {
   return (
