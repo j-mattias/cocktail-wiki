@@ -2,13 +2,13 @@
   display: flex;
   justify-content: center;
   gap: 0.4rem;
+  margin-bottom: 2rem;
 
   button {
-    padding: 0.4rem;
+    padding: 0.8rem;
     border: 1px solid #FFDEC0;
     background-color: #00000000;
     color: white;
-    border-radius: 4px;
     cursor: pointer;
     font-weight: 600;
     

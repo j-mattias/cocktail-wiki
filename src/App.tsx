@@ -1,15 +1,13 @@
-import { Outlet } from 'react-router-dom'
-import { SearchContextProvider } from './contexts/SearchResultContext'
+import { Outlet } from 'react-router-dom';
 import Header from "./components/Header";
 
 function App() {
   return (
     <>
-      <p>Hi from App</p>
       <Header />
-      <SearchContextProvider>
+      <main>
         <Outlet />
-      </SearchContextProvider>
+      </main>
     </>
   );
 }
