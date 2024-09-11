@@ -12,7 +12,8 @@ interface ISearchContextProviderProps {
   children: ReactNode;
 }
 
-const SearchContext = createContext<ISearchContext | null>(null);
+
+const SearchContext = createContext<ISearchContext | null>(null); 
 
 // Used to wrap any children components that need access to reading/updating the searchResults
 export function SearchContextProvider({ children }: ISearchContextProviderProps) {
