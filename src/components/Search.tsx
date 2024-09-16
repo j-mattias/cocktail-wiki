@@ -54,7 +54,7 @@ export const Search = () => {
       <form onSubmit={handleSearch}>
         <input
           type="text"
-          value={searchName}
+          
           onChange={(e) => setSearchName(e.target.value)}
           placeholder="Enter drink name"
         />
