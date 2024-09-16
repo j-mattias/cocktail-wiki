@@ -3,7 +3,7 @@ import { createContext, ReactElement, ReactNode, useState } from "react";
 
 import { CocktailCard } from "../components";
 import { IDrinkReformat } from "../interfaces";
-  interface IMovieProviderProps {
+  interface CocktailProviderProps {
   children: ReactNode;
 }
 
