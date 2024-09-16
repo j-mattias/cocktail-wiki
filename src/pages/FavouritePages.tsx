@@ -3,12 +3,15 @@ import { createContext, ReactElement, ReactNode, useState } from "react";
 
 import { CocktailCard } from "../components";
 import { IDrinkReformat } from "../interfaces";
-  interface CocktailProviderProps {
+interface CocktailProviderProps {
   children: ReactNode;
 }
 
 export function FavouritePages() {
-
-// hooks come here  
+  return (
+    <div className="favouritepage-container">
+      <h1>Welcome to the Favourite Page</h1>
+    </div>
+  );
+  // hooks come here
 }
-
