@@ -3,20 +3,18 @@ import { useSearchContext } from "../contexts/SearchResultContext";
 import { reformatData } from "../helpers";
 
 export const Search = () => {
-  // searchname from the userinput
   const [searchName, setSearchName] = useState<string>("");
-
-  // Use setSearchResults from context
-  const { setSearchResults } = useSearchContext();
-
+  const { setSearchResults } = useSearchContext(); 
   const [error, setError] = useState<string | null>(null);
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetchDrinks(searchName);
+    if (searchName.trim()) {
+      fetchDrinks(searchName);
+    } else {
+      setError("Please enter a valid drink name");
+    }
   };
-
-  // Fetching the api using the search input for name
 
   const fetchDrinks = (name: string) => {
     const apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`;
@@ -24,44 +22,39 @@ export const Search = () => {
     fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Failed fetch drinks.");
+          throw new Error("Failed to fetch drinks.");
         }
         return response.json();
       })
-
-      // Takes the helper function reformatData and converts it to IDrink format
       .then((data) => {
         if (data.drinks) {
-          // Reformat the data to the expected format
-          const reformattedDrinks = reformatData(data);
-
-          setSearchResults(reformattedDrinks); // Save to SearchResultContext
+          const reformattedDrinks = reformatData({ drinks: data.drinks });
+          setSearchResults(reformattedDrinks); // Set search results in context
+          setError(null);
         } else {
-          setSearchResults(null); // If no drinks found, clear results
+          setSearchResults([]);
+          setError("No drinks found.");
         }
-        setError(null); // Clear any previous error
       })
       .catch((err) => {
-        setError(err.message); // Handle error
-        setSearchResults(null); // Clear results on error
+        setError(err.message);
+        setSearchResults([]);
       });
   };
 
   return (
     <div>
-      <h1>Search for a Drink</h1>
-
       <form onSubmit={handleSearch}>
         <input
           type="text"
-          
+          value={searchName}
           onChange={(e) => setSearchName(e.target.value)}
           placeholder="Enter drink name"
         />
         <button type="submit">Search</button>
       </form>
 
-      {error && <p>Error: {error}</p>}
+      {error && <p style={{ color: "red" }}>Error: {error}</p>}
     </div>
   );
 };

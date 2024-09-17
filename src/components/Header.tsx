@@ -11,9 +11,13 @@ export const Header: React.FC = () => {
         <NavLink to="/" className={({ isActive }) => (isActive ? "active-link" : "link")}>
           Home
         </NavLink>
+        <NavLink to="/favourite" className={({ isActive }) => (isActive ? "active-link" : "link")}>
+          Favourites
+        </NavLink>
         <NavLink to="/search" className={({ isActive }) => (isActive ? "active-link" : "link")}>
           Search
         </NavLink>
+     
       </nav>
     </header>
   );
