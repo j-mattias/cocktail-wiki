@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Cocktail } from "../interfaces";
 
@@ -14,7 +13,7 @@ export const CocktailCard = ({ cocktail }: ICocktailCardProps): React.ReactEleme
       </figure>
       <h3 className="cocktail-info">{cocktail.name}</h3>
       <p>
-        <Link to={`/details/${cocktail.id}`}>More info</Link> {/* More info page here*/}
+        <Link to={`/details/${cocktail.id}`}>More info</Link>
       </p>
     </article>
   );
