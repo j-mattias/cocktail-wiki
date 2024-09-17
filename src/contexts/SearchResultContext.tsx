@@ -1,40 +1,35 @@
-import { createContext, ReactNode, useContext, useState } from "react";
-import { IDrinkReformat } from "../interfaces";
+import { createContext, useContext, useState } from "react";
 
-type TDrinkValue = IDrinkReformat[] | null;
-
-interface ISearchContext {
-  searchResults: TDrinkValue;
-  setSearchResults: React.Dispatch<React.SetStateAction<TDrinkValue>>;
+// Define the types
+interface IDrink {
+  id: string;
+  name: string;
+  image: string;
+  instructions: string;
 }
 
-interface ISearchContextProviderProps {
-  children: ReactNode;
+interface SearchResultContextType {
+  searchResults: IDrink[];
+  setSearchResults: (results: IDrink[]) => void;
 }
 
-const SearchContext = createContext<ISearchContext | null>(null);
-console.log(SearchContext);
+// Create the context
+const SearchResultContext = createContext<SearchResultContextType | undefined>(undefined);
 
-// Used to wrap any children components that need access to reading/updating the searchResults
-export function SearchContextProvider({ children }: ISearchContextProviderProps) {
-  const [searchResults, setSearchResults] = useState<TDrinkValue>(null);
+export const useSearchContext = () => {
+  const context = useContext(SearchResultContext);
+  if (!context) {
+    throw new Error("useSearchContext must be used within a SearchResultProvider");
+  }
+  return context;
+};
+
+export const SearchResultProvider = ({ children }: { children: React.ReactNode }) => {
+  const [searchResults, setSearchResults] = useState<IDrink[]>([]);
 
   return (
-    <SearchContext.Provider value={{ searchResults, setSearchResults }}>
+    <SearchResultContext.Provider value={{ searchResults, setSearchResults }}>
       {children}
-    </SearchContext.Provider>
+    </SearchResultContext.Provider>
   );
-}
-
-// Custom hook for the search context to avoid repeating code in components that use it
-export function useSearchContext() {
-  const context = useContext(SearchContext);
-
-  // If you try to use this context outside of SearchContextProvider, throw an error to
-  // notify the developer
-  if (!context) {
-    throw new Error("useSearchContext must be used within SearchContextProvider");
-  }
-
-  return context;
-}
+};

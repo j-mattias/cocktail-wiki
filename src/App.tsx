@@ -1,14 +1,17 @@
-import { Outlet } from 'react-router-dom';
-import { Header } from './components';
+import { Outlet } from "react-router-dom";
+import { Header } from "./components";
+import { FavouriteCocktailProvider } from "./contexts/FavouriteCocktailContext";
 
 function App() {
   return (
-    <>
-      <Header />
-      <main>
-        <Outlet />
-      </main>
-    </>
+    <FavouriteCocktailProvider>
+      <>
+        <Header />
+        <main>
+          <Outlet />
+        </main>
+      </>
+    </FavouriteCocktailProvider>
   );
 }
 

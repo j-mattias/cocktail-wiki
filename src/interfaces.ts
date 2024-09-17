@@ -1,5 +1,7 @@
-type TOptionalString = string | null;
+// Utility type for optional strings
+export type TOptionalString = string | null;
 
+// IDrink interface for raw drink data from the API
 export interface IDrink {
   idDrink: string;
   strDrink: string;
@@ -23,16 +25,6 @@ export interface IDrink {
   strIngredient3: TOptionalString;
   strIngredient4: TOptionalString;
   strIngredient5: TOptionalString;
-  strIngredient6: TOptionalString;
-  strIngredient7: TOptionalString;
-  strIngredient8: TOptionalString;
-  strIngredient9: TOptionalString;
-  strIngredient10: TOptionalString;
-  strIngredient11: TOptionalString;
-  strIngredient12: TOptionalString;
-  strIngredient13: TOptionalString;
-  strIngredient14: TOptionalString;
-  strIngredient15: TOptionalString;
   strMeasure1: TOptionalString;
   strMeasure2: TOptionalString;
   strMeasure3: TOptionalString;
@@ -42,46 +34,50 @@ export interface IDrink {
   strMeasure7: TOptionalString;
   strMeasure8: TOptionalString;
   strMeasure9: TOptionalString;
-  strMeasure10: TOptionalString;
-  strMeasure11: TOptionalString;
-  strMeasure12: TOptionalString;
-  strMeasure13: TOptionalString;
-  strMeasure14: TOptionalString;
-  strMeasure15: TOptionalString;
   strImageSource: TOptionalString;
   strImageAttribution: TOptionalString;
   strCreativeCommonsConfirmed: TOptionalString;
   dateModified: TOptionalString;
-  [key: string]: any;
+  [key: string]: any; // Allowing dynamic fields
 }
 
+// Drink Ingredients structure
 interface IDrinkIngredients {
   ingredient: string;
   measure: TOptionalString;
 }
 
+// IDrinkReformat interface for reformatted drink data
 export interface IDrinkReformat {
-  idDrink: string;
-  strDrink: string;
-  strDrinkAlternate: TOptionalString;
-  strTags: TOptionalString;
-  strVideo: TOptionalString;
-  strCategory: string;
-  strIBA: TOptionalString;
-  strAlcoholic: string;
-  strGlass: string;
-  strInstructions: string;
-  strInstructionsES: TOptionalString;
-  strInstructionsDE: TOptionalString;
-  strInstructionsFR: TOptionalString;
-  strInstructionsIT: TOptionalString;
-  "strInstructionsZH-HANS": TOptionalString;
-  "strInstructionsZH-HANT": TOptionalString;
-  strDrinkThumb: string;
-  strIngredients: IDrinkIngredients[];
-  strImageSource: TOptionalString;
-  strImageAttribution: TOptionalString;
-  strCreativeCommonsConfirmed: TOptionalString;
-  dateModified: TOptionalString;
-  [key: string]: TOptionalString | IDrinkIngredients[];
+  id: string; // Simplified `id`
+  name: string; // Simplified `name`
+  instructions: string; // Simplified `instructions`
+  image: string; // Simplified `image`
+  ingredients: IDrinkIngredients[]; // Array of ingredients
+  [key: string]: any; // Allow dynamic fields
 }
+
+// Simple Cocktail interface for use in favorites
+export interface Cocktail {
+  id: string;
+  name: string;
+  image: string;
+}
+
+// Mapping function from IDrink to Cocktail
+export const mapIDrinkToCocktail = (drink: IDrink): Cocktail => {
+  return {
+    id: drink.idDrink,
+    name: drink.strDrink,
+    image: drink.strDrinkThumb,
+  };
+};
+
+// Mapping function from IDrinkReformat to Cocktail
+export const mapIDrinkReformatToCocktail = (drink: IDrinkReformat): Cocktail => {
+  return {
+    id: drink.id,
+    name: drink.name,
+    image: drink.image,
+  };
+};
