@@ -10,5 +10,11 @@ import { IDrinkReformat } from "../interfaces";
 export function FavouritePages() {
 
 // hooks come here  
+
+
+  return (
+    <div></div>
+
+  );
 }
 
