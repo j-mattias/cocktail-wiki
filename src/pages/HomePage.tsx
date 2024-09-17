@@ -1,28 +1,35 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { CocktailCard } from "../components";
-import { IDrinkReformat } from "../interfaces";
+import { useFavouriteCocktails } from "../contexts/FavouriteCocktailContext";
+import { CocktailCard } from "../components/CocktailCard";
+import { IDrinkReformat, mapIDrinkReformatToCocktail } from "../interfaces";
 
 export function HomePage() {
-  // Retrieve the random cocktail from the randomCocktailLoader associated with the home route
   const randomCocktailData = useLoaderData() as IDrinkReformat[];
-  const randomCocktail = randomCocktailData[0];
-
+  const randomCocktail = randomCocktailData?.[0]; // Safeguard for empty data
   const navigate = useNavigate();
 
-  const handleRandomizeClick = () => {
-    navigate("/");
+  const { addFavourite } = useFavouriteCocktails();
+
+  const handleAddToFavourites = () => {
+    if (!randomCocktail) return; // Ensure randomCocktail exists
+    const cocktail = mapIDrinkReformatToCocktail(randomCocktail); // Map to Cocktail type
+    addFavourite(cocktail);
   };
 
   return (
     <div className="homepage-container">
-      <h1>Welcome to the Cocktail Wiki</h1>
-      <p>Discover a variety of cocktails by searching for your favorite cocktails or by letting us help you!</p>
-
-      <CocktailCard cocktail={randomCocktail} />
-
-      <button className="randomize-button" onClick={handleRandomizeClick}>
-        Randomize Cocktail
-      </button>
+      <h1>Welcome to the Cocktail Wiki!</h1>
+      {randomCocktail ? (
+        <>
+          <CocktailCard cocktail={mapIDrinkReformatToCocktail(randomCocktail)} /> {/* Pass mapped cocktail */}
+          <button className="randomize-button" onClick={() => navigate("/")}>
+            Randomize Cocktail
+          </button>
+          <button onClick={handleAddToFavourites}>Add to Favourites</button>
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }

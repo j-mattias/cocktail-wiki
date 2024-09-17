@@ -1,22 +1,21 @@
-import { ReactElement } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-
-import { IDrinkReformat } from "../interfaces";
+import { Cocktail } from "../interfaces";
 
 interface ICocktailCardProps {
-  cocktail: IDrinkReformat;
+  cocktail: Cocktail;
 }
 
-export function CocktailCard({ cocktail }: ICocktailCardProps): ReactElement {
+export const CocktailCard = ({ cocktail }: ICocktailCardProps): React.ReactElement => {
   return (
-    <article className="cocktail-card" >
+    <article className="cocktail-card">
       <figure className="cocktail-image">
-        <img src ={cocktail.strDrinkThumb} className="cocktail-image" />
+        <img src={cocktail.image} alt={cocktail.name} className="cocktail-image" />
       </figure>
-      <h3 className="cocktail-info">{cocktail.strDrink}</h3>
-     
-      {/* the address needs to be added */}
-      <p><Link to={`/?id=${cocktail.idDrink}`}>More info</Link></p>
+      <h3 className="cocktail-info">{cocktail.name}</h3>
+      <p>
+        <Link to={`/details/${cocktail.id}`}>More info</Link> {/* More info page here*/}
+      </p>
     </article>
   );
-}
+};

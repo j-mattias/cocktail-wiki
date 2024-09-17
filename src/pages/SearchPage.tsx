@@ -1,12 +1,11 @@
 import { ListResults, Search } from "../components";
-
-import { SearchContextProvider } from "../contexts/SearchResultContext";
+import { SearchResultProvider } from "../contexts/SearchResultContext";
 
 export function SearchPage() {
   return (
-    <SearchContextProvider>
+    <SearchResultProvider>
       <Search />
       <ListResults />
-    </SearchContextProvider>
+    </SearchResultProvider>
   );
 }
