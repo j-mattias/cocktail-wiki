@@ -20,13 +20,14 @@ export async function randomCocktailLoader() {
 export async function ingredientLoader({ params }: IParams) {
   try {
     const ingredientName = params.name ? params.name : "";
-    const formatName = ingredientName.replace("-", "+");
+    const formatName = ingredientName.replace(" ", "+");
 
     // Fetch ingredient information
     const ingredientData = await fetchData(
       "https://www.thecocktaildb.com/api/json/v1/1/search.php?i=" + params.name,
       "Could not fetch ingredient information"
     );
+
     // Extract the ingredient object
     const ingredient = ingredientData.ingredients[0];
 
