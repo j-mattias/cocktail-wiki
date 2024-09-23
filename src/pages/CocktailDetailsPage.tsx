@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { IDrink } from "../interfaces"; 
 
 export const CocktailDetailsPage = () => {
@@ -61,9 +61,9 @@ export const CocktailDetailsPage = () => {
           const ingredient = cocktail[`strIngredient${index + 1}`];
           const measure = cocktail[`strMeasure${index + 1}`];
           return ingredient ? (
-            <li key={index}>
+            <Link to={`../ingredient/${ingredient}`}key={index}>
               {ingredient} {measure ? `- ${measure}` : ""}
-            </li>
+            </Link>
           ) : null;
         })}
       </ul>

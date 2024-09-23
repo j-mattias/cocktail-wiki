@@ -64,8 +64,10 @@ export interface Cocktail {
   image: string;
 }
 
+type TDrink = IDrink | IDrinkWithIngredient;
+
 // Mapping function from IDrink to Cocktail
-export const mapIDrinkToCocktail = (drink: IDrink): Cocktail => {
+export const mapIDrinkToCocktail = (drink: TDrink): Cocktail => {
   return {
     id: drink.idDrink,
     name: drink.strDrink,
@@ -81,3 +83,19 @@ export const mapIDrinkReformatToCocktail = (drink: IDrinkReformat): Cocktail => 
     image: drink.image,
   };
 };
+
+export interface IIngredient {
+  id: string;
+  strABV: TOptionalString;
+  strAlcohol: TOptionalString;
+  strDescription: TOptionalString;
+  strIngredient: string;
+  strType: TOptionalString;
+  thumbnail: string;
+}
+
+export interface IDrinkWithIngredient {
+  idDrink: string;
+  strDrink: string;
+  strDrinkThumb: string;
+}

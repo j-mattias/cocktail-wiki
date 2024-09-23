@@ -3,3 +3,4 @@ export * from "./SearchPage";
 export * from "./NotFound";
 export * from "./FavouritePages";
 export * from "./CocktailDetailsPage";
+export * from "./IngredientPage";
