@@ -23,7 +23,7 @@ export function IngredientPage() {
         {ingredient.strAlcohol && <p>Alcoholic: {ingredient.strAlcohol}</p>}
       </article>
       {drinks.map((drink) => (
-        <CocktailCard cocktail={drink} />
+        <CocktailCard key={drink.id} cocktail={drink} />
       ))}
     </section>
   );
