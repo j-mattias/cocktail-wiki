@@ -23,3 +23,19 @@ export function reformatData(data: { drinks: IDrink[] }): IDrinkReformat[] {
     };
   });
 }
+
+// Reusable fetch function to reduce code repetition
+export async function fetchData(url: string, notOkMsg: string) {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(notOkMsg);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error: any) {
+    throw error;
+  }
+}
