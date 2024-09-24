@@ -3,6 +3,7 @@
 @import url("IngredientPage.css");
 @import url("ListResults.css");
 @import url("Pagination.css");
+@import url("CocktailCard.css");
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
