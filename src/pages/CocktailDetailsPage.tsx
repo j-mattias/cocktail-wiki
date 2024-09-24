@@ -49,15 +49,9 @@ export const CocktailDetailsPage = () => {
 
       {/* Category, Tags and Glass */}
       <article>
-      <h3>Category: {cocktail.strCategory}</h3>
-      <p>Tags: {cocktail.strTags || "No tags available"}</p>
-      <p>Served in: {cocktail.strGlass}</p>
-      {/* Instructions */}
-      <h3>Instructions</h3>
-      <p>{cocktail.strInstructions}</p>
-
       {/* Ingredients and Measures */}
       <h3>Ingredients</h3>
+      <p className="details">
       <ul>
         {Array.from({ length: 15 }).map((_, index) => {
           const ingredient = cocktail[`strIngredient${index + 1}`];
@@ -68,7 +62,16 @@ export const CocktailDetailsPage = () => {
             </Link>
           ) : null;
         })}
-      </ul>
+      </ul></p>
+      <h3>Glass</h3>
+        <p className="details">{cocktail.strGlass}</p>
+      {/* Instructions */}
+      <h3>Instructions</h3>
+        <p className="details">{cocktail.strInstructions}</p>
+      <h3>Category:</h3>
+        <p className="details">{cocktail.strCategory}</p>
+      <h3>Tags: </h3>
+         <p className="details">{cocktail.strTags || "No tags available"}</p>
       </article>
       </figure>
     </div>
