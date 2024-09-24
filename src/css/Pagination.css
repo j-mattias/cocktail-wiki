@@ -6,19 +6,19 @@
 
   button {
     padding: 0.8rem;
-    border: 1px solid #FFDEC0;
-    background-color: #00000000;
+    border: 2px solid #a38960;
+    border-radius: 8px;
+    background-color: #2d2d2d;
     color: white;
     cursor: pointer;
     font-weight: 600;
     
     &.activePage {
-      background-color: #FFDEC0;
-      color: black;
+      background-color: #a38960;
     }
 
     &:hover {
-      background-color: rgba(255, 222, 192, 0.5);
+      background-color: hsl(from #a38960 h s l / 50%);
     }
   }
 }
