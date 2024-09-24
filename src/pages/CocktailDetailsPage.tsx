@@ -40,22 +40,18 @@ export const CocktailDetailsPage = () => {
   return (
     <div className="cocktail-details">
       {/* Cocktail Name */}
-      <h1>{cocktail.strDrink}</h1>
+      <h1>{cocktail.strDrink}<div className="cocktail-fav">★</div></h1>
       
+      <figure>
+
       {/* Cocktail Image */}
       <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} style={{ width: "300px" }} />
 
       {/* Category, Tags and Glass */}
-      <h3>Category: {cocktail.strCategory}</h3>
-      <p>Tags: {cocktail.strTags || "No tags available"}</p>
-      <p>Served in: {cocktail.strGlass}</p>
-      
-      {/* Instructions */}
-      <h3>Instructions</h3>
-      <p>{cocktail.strInstructions}</p>
-
+      <article>
       {/* Ingredients and Measures */}
       <h3>Ingredients</h3>
+      <p className="details">
       <ul>
         {Array.from({ length: 15 }).map((_, index) => {
           const ingredient = cocktail[`strIngredient${index + 1}`];
@@ -66,7 +62,18 @@ export const CocktailDetailsPage = () => {
             </Link>
           ) : null;
         })}
-      </ul>
+      </ul></p>
+      <h3>Glass</h3>
+        <p className="details">{cocktail.strGlass}</p>
+      {/* Instructions */}
+      <h3>Instructions</h3>
+        <p className="details">{cocktail.strInstructions}</p>
+      <h3>Category:</h3>
+        <p className="details">{cocktail.strCategory}</p>
+      <h3>Tags: </h3>
+         <p className="details">{cocktail.strTags || "No tags available"}</p>
+      </article>
+      </figure>
     </div>
   );
 };
