@@ -43,7 +43,8 @@ export const Search = () => {
   };
 
   return (
-    <div>
+    <div className="search">
+      <h2>Search Cocktail</h2>
       <form onSubmit={handleSearch}>
         <input
           type="text"

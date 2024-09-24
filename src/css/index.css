@@ -6,6 +6,9 @@
 @import url("CocktailCard.css");
 @import url("CocktailDetails.css");
 
+@import url("Search.css");
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
