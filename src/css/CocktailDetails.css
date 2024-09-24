@@ -1,3 +1,23 @@
-body{
-    
+body div {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+div figure {
+    display: flex;
+    gap: 1 rem;
+}
+
+body article {
+    margin-left: 1rem;
+    border-radius: 5px;
+    border-color: white;
+    border: 1px solid white;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

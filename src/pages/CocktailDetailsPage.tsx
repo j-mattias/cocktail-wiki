@@ -40,16 +40,18 @@ export const CocktailDetailsPage = () => {
   return (
     <div className="cocktail-details">
       {/* Cocktail Name */}
-      <h1>{cocktail.strDrink}</h1>
+      <h1>{cocktail.strDrink}<div className="cocktail-fav">★</div></h1>
       
+      <figure>
+
       {/* Cocktail Image */}
       <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} style={{ width: "300px" }} />
 
       {/* Category, Tags and Glass */}
+      <article>
       <h3>Category: {cocktail.strCategory}</h3>
       <p>Tags: {cocktail.strTags || "No tags available"}</p>
       <p>Served in: {cocktail.strGlass}</p>
-      
       {/* Instructions */}
       <h3>Instructions</h3>
       <p>{cocktail.strInstructions}</p>
@@ -67,6 +69,8 @@ export const CocktailDetailsPage = () => {
           ) : null;
         })}
       </ul>
+      </article>
+      </figure>
     </div>
   );
 };
