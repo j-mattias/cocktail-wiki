@@ -23,7 +23,7 @@ export function HomePage() {
         <>
           <CocktailCard cocktail={mapIDrinkReformatToCocktail(randomCocktail)} /> {/* Pass mapped cocktail */}
           <button className="randomize-button" onClick={() => navigate("/")}>
-            Randomize Cocktail
+            Randomize
           </button>
           <button onClick={handleAddToFavourites}>Add to Favourites</button>
         </>

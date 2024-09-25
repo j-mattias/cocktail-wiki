@@ -1,5 +1,6 @@
 @import url("App.css");
 @import url("Header.css");
+@import url("HomePage.css");
 @import url("IngredientPage.css");
 @import url("ListResults.css");
 @import url("Pagination.css");
@@ -49,7 +50,24 @@ main {
   width: 100%;
 }
 
-button {}
+button {
+  border: 2px solid #a38960;
+  border-radius: 8px;
+  background-color: transparent;
+  color: white;
+  font-weight: 500;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    background-color: #a38960;
+  }
+}
+
+
+
+
 
 img {
   width: 100%;
