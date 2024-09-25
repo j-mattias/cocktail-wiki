@@ -42,8 +42,8 @@ export function IngredientPage() {
         {ingredient.strDescription && (
           <div className="ingredient-description">
             <h2>Description</h2>
-            {description.map(paragraph => (
-              <p>{paragraph}</p>
+            {description.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
             ))}
           </div>
         )}

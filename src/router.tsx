@@ -6,7 +6,7 @@ import { ingredientLoader, randomCocktailLoader } from "./loaders";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<App />} path="/">
+    <Route element={<App />} errorElement={<NotFound />} path="/">
       <Route element={<HomePage />} loader={randomCocktailLoader} index />
       <Route element={<SearchPage />} path="search" />
       <Route element={<FavouritePage />} path="favourite" /> 

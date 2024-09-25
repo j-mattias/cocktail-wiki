@@ -2,17 +2,16 @@ import { useFavouriteCocktails } from "../contexts/FavouriteCocktailContext";
 import { CocktailCard } from "../components/CocktailCard";
 
 export function FavouritePage() {
-  const { favouriteCocktails, removeFavourite } = useFavouriteCocktails(); // Access favorite cocktails
+  const { favouriteCocktails } = useFavouriteCocktails(); // Access favorite cocktails
 
   return (
     <div className="favouritepage-container">
-      <h1>Your Favourite Cocktails</h1>
+      <h1 className="uppercase">Your Favourite Cocktails</h1>
       {favouriteCocktails.length > 0 ? (
-        <ul>
+        <ul className="favourite-cocktails-container">
           {favouriteCocktails.map((cocktail) => (
             <li key={cocktail.id}>
               <CocktailCard cocktail={cocktail} /> {/* Render CocktailCard for each */}
-              <button onClick={() => removeFavourite(cocktail.id)}>Remove</button> {/* Remove Button */}
             </li>
           ))}
         </ul>
