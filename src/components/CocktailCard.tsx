@@ -18,9 +18,6 @@ export const CocktailCard = ({ cocktail }: ICocktailCardProps): React.ReactEleme
       <h3 className="cocktailcard-info">{cocktail.name}</h3>
 
       <Link className="link-more-info" to={`/details/${cocktail.id}`}>More info</Link>
-      {/* <p>
-        <Link to={`/details/${cocktail.id}`}>More info</Link>
-      </p> */}
     </article>
   );
 };
