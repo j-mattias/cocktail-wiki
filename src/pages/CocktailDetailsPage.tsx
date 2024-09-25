@@ -45,14 +45,14 @@ export const CocktailDetailsPage = () => {
 
   return (
     <div className="cocktail-details">
-      <h1 className="cocktail-title">
+      <h1 className="cocktail-title uppercase">
         {cocktail.strDrink}
         <FavoriteButton cocktail={fetchedCocktail} />
       </h1>
 
       <div className="cocktail-details-wrapper">
         <figure className="cocktail-figure">
-          <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} style={{ width: "300px" }} />
+          <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
         </figure>
         <article className="cocktail-info">
           <h3>Ingredients</h3>

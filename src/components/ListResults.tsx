@@ -23,9 +23,7 @@ export function ListResults() {
     <section className="list-container">
       <section className="list-results">
         {currentPosts.map((cocktail) => (
-          <div key={cocktail.id} className="drink-card">
-            <CocktailCard cocktail={cocktail} />
-          </div>
+          <CocktailCard key={cocktail.id} cocktail={cocktail} />
         ))}
       </section>
       <Pagination

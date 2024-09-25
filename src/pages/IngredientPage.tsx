@@ -17,7 +17,7 @@ export function IngredientPage() {
 
   return (
     <section className="ingredient-page">
-      <h1 className="ingredient-title">{ingredient.strIngredient}</h1>
+      <h1 className="ingredient-title uppercase">{ingredient.strIngredient}</h1>
       <article className="ingredient-details">
         <figure className="ingredient-figure">
           <img src={ingredientImage} alt={`Image of ${ingredient}`} />
