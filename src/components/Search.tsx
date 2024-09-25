@@ -44,7 +44,7 @@ export const Search = () => {
 
   return (
     <div className="search">
-      <h2>Search Cocktail</h2>
+      <h2 className="uppercase">Search Cocktail</h2>
       <form onSubmit={handleSearch}>
         <input
           type="text"

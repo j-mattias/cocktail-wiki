@@ -24,7 +24,7 @@
   object-fit: cover;
 }
 
-.cocktail-info {
+.cocktailcard-info {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -69,11 +69,6 @@
   grid-column: 2;
   grid-row: 1;
   margin-left: 4rem;
-  font-size: 70px;
-  color: rgb(0, 0, 0);
-  -webkit-text-stroke: 4px rgb(255, 255, 255);
-  background-color: transparent;
   padding: 5px;
-
   border: none;
 }

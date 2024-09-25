@@ -1,40 +1,71 @@
-body div {
-    display: flex;
-    gap: 2rem;
-    flex-direction: column;
+.cocktail-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1312px;
 }
 
-div figure {
-    display: flex;
+.cocktail-details-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
-body article {
-    margin-left: 1rem;
-    border-radius: 5px;
-    border-color: white;
-    border: 1px solid white;
-    padding: 1rem;
+.cocktail-info {
+  margin-left: 1rem;
+  border-radius: 5px;
+  border-color: white;
+  border: 1px solid white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.cocktail-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 figure img {
-    height: 100%
+  height: 100%;
 }
 
-article ul a {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: white;
-    font-weight: normal;
+.links-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ingredient-link {
+  display: flex;
+  gap: 0.4rem;
+  color: white;
+}
+
+.links-wrapper .ingredient-link::after {
+  content: "\f08e";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 600;
+  margin-left: 0.6rem;
 }
 
 .details {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tag-wrapper {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+}
+
+.tag {
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
 }

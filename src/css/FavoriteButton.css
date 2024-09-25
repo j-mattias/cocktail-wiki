@@ -1,0 +1,9 @@
+.fa-star {
+  font-size: 3rem;
+  cursor: pointer;
+  transition: color 0.3s ease-out;
+
+  &:hover {
+    color: #ccc;
+  }
+}

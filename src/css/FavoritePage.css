@@ -1,9 +1,9 @@
-.list-container {
+.favouritepage-container {
   display: flex;
   flex-direction: column;
 }
 
-.list-results {
+.favourite-cocktails-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   max-width: 70vw;
@@ -12,4 +12,10 @@
   margin-bottom: 2rem;
   width: 100%;
   list-style: none;
+}
+
+.uppercase {
+  align-self: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }

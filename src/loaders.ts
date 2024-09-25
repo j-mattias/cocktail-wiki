@@ -42,6 +42,7 @@ export async function ingredientLoader({ params }: IParams) {
 
     // Convert drink objects to cocktail compatible interface
     const drinks = drinkList.map(mapIDrinkToCocktail);
+    console.log(drinks);
 
     return { ingredient, ingredientImage, drinks };
   } catch (error: any) {
