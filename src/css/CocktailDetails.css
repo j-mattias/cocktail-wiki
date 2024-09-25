@@ -11,6 +11,10 @@
   gap: 1rem;
 }
 
+.cocktail-figure {
+  flex: 1 0 40%;
+}
+
 .cocktail-info {
   margin-left: 1rem;
   border-radius: 5px;

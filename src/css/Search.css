@@ -2,6 +2,10 @@
   margin-top: 1.5rem;
 }
 
+.search > form {
+  display: flex;
+}
+
 .search > form > input {
   border-radius: 1rem;
   border-style: none;

@@ -39,11 +39,12 @@
   padding: 10px 20px;
   border-radius: 10px;
   text-align: center;
+  pointer-events: none;
 }
 
 /* Button */
 
-.cocktail-card > p {
+.link-more-info {
   grid-column: 2;
   grid-row: 2;
   margin: 20px;
@@ -54,6 +55,7 @@
   padding: 10px 10px;
   border-radius: 10px;
   text-decoration: none;
+  text-align: center;
   font-weight: bold;
   transition: all 0.3s ease;
 }
